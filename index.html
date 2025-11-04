@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>To-Do List</h1>
+      <p class="subtitle">จัดการงานง่าย ๆ — ทำให้เสร็จทีละอย่าง</p>
+    </header>
+
+    <section class="controls-section">
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <input id="todo-input" type="text" placeholder="พิมพ์งานใหม่แล้วกด Enter" required />
+        <button type="submit" class="add-btn">เพิ่ม</button>
+      </form>
+
+      <div class="tools">
+        <input id="search-input" type="search" placeholder="ค้นหางาน..." />
+        <div class="filters" role="tablist" aria-label="filters">
+          <button data-filter="all" class="filter-btn active">ทั้งหมด</button>
+          <button data-filter="active" class="filter-btn">ยังไม่เสร็จ</button>
+          <button data-filter="completed" class="filter-btn">เสร็จแล้ว</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="todos-section">
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+    </section>
+
+    <footer class="footer">
+      <div id="counts" class="counts">0 งาน — 0 คงเหลือ</div>
+      <div class="footer-actions">
+        <button id="clear-completed" class="clear-btn">ล้างงานที่เสร็จแล้ว</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
