@@ -1,6 +1,11 @@
-// Simple To-Do App (vanilla JS) - script.js
 (() => {
   const STORAGE_KEY = 'todos_v2';
+
+  const categoryLabels = {
+    personal: "ส่วนตัว",
+    study: "การเรียน",
+    home: "งานบ้าน",
+  };
 
   // state
   let todos = loadTodos();
@@ -73,7 +78,7 @@
         li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
         li.dataset.id = todo.id;
 
-        // ✅ Animation effect
+        // Animation effect
         li.classList.add('added');
         setTimeout(() => li.classList.remove('added'), 300);
 
@@ -88,12 +93,13 @@
         title.textContent = todo.title;
         title.addEventListener('dblclick', () => startEdit(li, todo));
 
-        // category + due date info
+        const catName = categoryLabels[todo.category] || todo.category || "-";
+        const due = todo.dueDate ? `📅 ${todo.dueDate}` : '📅 -';
+        const cat = `🏷 ${catName}`;
+
         const meta = document.createElement('div');
         meta.className = 'meta';
-        const due = todo.dueDate ? `📅 ${todo.dueDate}` : '📅 -';
-        const cat = todo.category ? `🏷 ${todo.category}` : '';
-        meta.textContent = `${due} ${cat}`;
+        meta.textContent = `${due} | ${cat}`;
 
         const editBtn = document.createElement('button');
         editBtn.className = 'btn edit';
@@ -145,7 +151,6 @@
   }
 
   function deleteTodo(id, li) {
-    // ✅ animation ก่อนลบ
     li.classList.add('removed');
     setTimeout(() => {
       todos = todos.filter(x => x.id !== id);
