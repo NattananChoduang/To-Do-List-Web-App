@@ -19,6 +19,17 @@
         <button type="submit" class="add-btn">เพิ่ม</button>
       </form>
 
+      <select id="category-input">
+          <option value="personal">ส่วนตัว</option>
+          <option value="study">การเรียน</option>
+          <option value="home">งานบ้าน</option>
+        </select>
+
+        <input id="due-date-input" type="date" />
+
+        <button type="submit" class="add-btn">เพิ่ม</button>
+      </form>
+
       <div class="tools">
         <input id="search-input" type="search" placeholder="ค้นหางาน..." />
         <div class="filters" role="tablist" aria-label="filters">
@@ -26,6 +37,12 @@
           <button data-filter="active" class="filter-btn">ยังไม่เสร็จ</button>
           <button data-filter="completed" class="filter-btn">เสร็จแล้ว</button>
         </div>
+      </div>
+    </section>
+
+    <div class="sort-options">
+        <button id="sort-date">เรียงตามวันที่ครบกำหนด</button>
+        <button id="sort-status">เรียงตามสถานะ</button>
       </div>
     </section>
 
